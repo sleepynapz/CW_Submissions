@@ -1,0 +1,20 @@
+/*
+ * This code calculates the surface area and the volume of any length set
+ */
+public class Intro_Cube {
+
+	public static void main(String[] args) {
+	
+	//Sets variables to the length
+	double sidelen=5;
+	
+	//Utilizes formulas to calculate the surface area and area
+	double volume=4*(sidelen*sidelen);
+	double surfacearea=sidelen*sidelen*sidelen;
+	
+	//Prints the surface area and area 
+	System.out.println("If the side length is " + (int) sidelen + ":");
+	System.out.println("Surface Area = " + (int) surfacearea);
+	System.out.print("Volume = " + (int) volume);
+	}
+}
