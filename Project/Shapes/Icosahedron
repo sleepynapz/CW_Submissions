@@ -1,0 +1,58 @@
+/**
+ * This class sets up variables for the edge and sets up methods to find the icosahedron's:
+ * surface area and volume
+ */
+public class Icosahedron 
+{
+	//data attributes
+	private double edge;	
+
+	
+	/**
+	* Sets up method to be able to set any number as the edge in the main
+	*/	
+	public Icosahedron(double e)
+	{
+		edge=e;
+	}
+	
+
+	/**
+	* Prints the edge 
+	*/
+	public double getEdge()
+	{
+		return edge;
+	}
+	
+	
+	/** 
+	 * Sets up formula for surface area
+	 */
+	public double getSurfaceArea()
+	{
+		double squareroot = Math.sqrt(3);
+		double surfacearea=(double)5*squareroot*edge*edge;
+		return surfacearea;
+	}
+	
+	
+	/**
+	 * Set up formula for volume
+	 */
+	public double getVolume()
+	{
+		double squareroot = Math.sqrt(5);
+		double volume=(double)((5*(3+squareroot))/(12))*(edge*edge*edge);
+		return volume;
+	}
+	
+	
+	/**
+	* Sets up to print the shape name in the main
+	*/
+	public static String getShapeName()
+	{
+		return"Icosahedron ";
+	}
+}
