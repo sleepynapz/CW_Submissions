@@ -1,0 +1,55 @@
+/**
+ * This class sets up variables for the side lengths and sets up methods to find the octagons's:
+ * perimeter and area
+ */
+public class Octagon 
+{
+	//data attributes
+	private double side;
+	
+	/**
+	* Sets up method to be able to set any number as the side length in the main
+	*/	 
+	public Octagon(double s)
+	{
+		side=s;
+	}
+	
+	/**
+	* Prints the side length 
+	*/	
+	public double getSideLength()
+	{
+		return side;
+	}
+	
+	
+	/**
+	 * Sets up formula for perimeter
+	 */
+	public double getPerimeter()
+	{
+		double perimeter=side*8;
+		return perimeter;
+	}
+	
+	
+	/**
+	 * Sets up formula for area
+	 */
+	public double getArea()
+	{
+		double squareroot = Math.sqrt(2);
+		double area=2*(1+squareroot)*(side*side);
+		return area;
+	}
+	
+	
+	/**
+	* Sets up to print the shape name in the main
+	*/
+	public static String getShapeName()
+	{
+		return"Octagon ";
+	}
+}
