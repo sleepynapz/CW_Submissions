@@ -1,0 +1,73 @@
+/**
+ * This class sets up variables for radius and sets up methods to find the circle's:
+ * diameter, circumference, area, and it's shape name
+ */
+public class Circle
+{
+	//data attributes
+	private final double pi=3.14;
+	private double radius;
+	
+	
+	/**
+	* Sets up method to be able to set any number as the radius in the main
+	*/
+	//constructor
+	public Circle(double r)
+	{
+		radius=r;
+	}
+		
+	/**
+	* Prints radius and sets up the formulas for finding diameter, circumference, and area
+	*/
+	public double getRadius()
+	{
+		return radius;
+	}
+	
+	
+	/**
+	 * Sets up the formulas for finding diameter
+	 */
+	public double getDiameter()
+	{
+		double diameter=radius*2;
+			return diameter;
+	}
+	
+	
+	/**
+	 * Sets up the formulas for finding circumference
+	 */
+	public double getCircumference()
+	{
+		double circumference=radius*pi*2;
+			return circumference;
+	}
+	
+	
+	/**
+	 * Sets up the formulas for area
+	*/
+	public double getArea()
+	{
+		double area=pi*radius*radius;
+			return area;
+	}
+	
+	
+	/**
+	* Sets up to print the shape name in the main
+	*/
+	public static String getShapeName()
+	{
+		return"Circle ";
+	}
+	
+	
+	public void setRadius(double r)
+	{
+		radius=r;
+	}
+}
