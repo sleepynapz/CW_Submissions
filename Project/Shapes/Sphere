@@ -1,0 +1,67 @@
+/**
+ * This class sets up variables for the radius and sets up methods to find the sphere's:
+ * diameter, surface area, and volume
+ */
+public class Sphere 
+{
+	//data attributes
+	private final double pi=3.14;
+	private double radius;
+	
+	
+	/**
+	* Sets up method to be able to set any number as the radius in the main
+	*/	
+	public Sphere(double r)
+	{
+		radius=r;
+	}
+
+	
+	/**
+	* Prints the radius 
+	*/	
+	public double getRadius()
+	{
+		return radius;
+	}
+	
+	
+	/**
+	 * Sets up formula for diameter
+	 */
+	public double getDiameter()
+	{
+		double diameter=radius*2;
+		return diameter;
+	}
+	
+	
+	/**
+	 * Sets up formula for surface area
+	 */
+	public double getSurfaceArea()
+	{
+		double surfacearea=4*pi*radius*radius;
+		return surfacearea;
+	}
+	
+	
+	/**
+	 * Sets up formula for volume
+	 */
+	public double getVolume()
+	{
+		double volume=(double)4/3*(pi*(radius*radius*radius));
+		return volume;
+	}
+	
+	
+	/**
+	* Sets up to print the shape name in the main
+	*/
+	public static String getShapeName()
+	{
+		return"Sphere ";
+	}
+}
