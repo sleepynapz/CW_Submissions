@@ -1,0 +1,59 @@
+/**
+ * This class sets up variables for the bases and height and sets up methods to find the trapezoid's:
+ * area
+ */
+public class Trapezoid 
+{
+	//data attributes
+	private double base1;
+	private double base2;
+	private double height;
+	
+	
+	/**
+	* Sets up method to be able to set any number as the bases and height in the main
+	*/	
+	public Trapezoid(double b1, double b2, double h)
+	{
+		base1=b1;
+		base2=b2;
+		height=h;
+	}
+
+	
+	/**
+	* Prints the bases
+	*/	
+	public String getBases()
+	{
+		return base1 + " and " + base2;
+	}
+	
+	
+	/**
+	 * Prints the height
+	 */
+	public double getHeight()
+	{
+		return height;
+	}
+	
+	
+	/**
+	 * Sets of formula for area
+	 */
+	public double getArea()
+	{
+		double area=(base1+base2)/(2)*height;
+		return area;
+	}
+	
+	
+	/**
+	* Sets up to print the shape name in the main
+	*/
+	public static String getShapeName()
+	{
+		return"Trapezoid ";
+	}
+}
