@@ -1,0 +1,92 @@
+/**
+ * This class sets up variables for base edge and height and sets up methods to find the hexagonal prism's:
+ * surface area, volume, lateral surface area
+ */
+public class HexagonalPrism 
+{
+	//date attributes
+	private double baseedge; 
+	private double height;
+	
+		
+	/**
+	 * Sets up method to be able to set any number as the base edge and height in the main
+	 */
+	public HexagonalPrism(double be, double h)
+	{
+		baseedge=be;
+		height=h;
+	}
+	
+	
+	/**
+	* Prints base edge and height
+	*/
+	public double getBaseEdge()
+	{
+		return baseedge;
+	}
+	
+	
+	public double getHeight()
+	{
+		return height;
+	}
+	
+	
+	/**
+	 * Sets up the formulas for finding surface area
+	 */
+	public double getSurfaceArea()
+	{
+		double squareroot=Math.sqrt(3);
+		double surfacearea=(6*baseedge*height)+3*(squareroot*(baseedge*baseedge));
+		return surfacearea;
+		
+	}
+	
+	
+	/**
+	 * Sets up the formula for volume
+	 */
+	public double getVolume()
+	{
+		double squareroot=Math.sqrt(3);
+		double volume=(3*squareroot)/(2*(baseedge*baseedge)*height);
+		return volume;
+	}
+	
+	
+	/**
+	 * Sets up the formula lateral surface area 
+	 */
+	public double getLateralSurfaceArea()
+	{
+		double lateralsa=6*baseedge*height;
+		return lateralsa;
+	}
+	
+	
+	/**
+	 * Sets up to print the shape name in the main
+	 */
+	public static String getShapeName()
+	{
+		return"Hexagonal Prism ";
+	}
+
+
+	public double getBaseedge() {
+		return baseedge;
+	}
+
+
+	public void setBaseedge(double baseedge) {
+		this.baseedge = baseedge;
+	}
+
+
+	public void setHeight(double height) {
+		this.height = height;
+	}
+}
