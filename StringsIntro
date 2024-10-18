@@ -1,0 +1,64 @@
+/**
+ * This is the string intro project/assignment
+ */
+import java.util.Scanner;
+public class StringsIntro {
+	public static void main(String[] args) 
+	{
+		//Instantiates Scanner object to read input
+		Scanner myReader=new Scanner(System.in);
+		
+		//Instantiate String object equal to the scanned input
+		System.out.print("Word: "); 
+		String myWord=myReader.next();
+
+		//Prints the infromation about the word that is typed (ie: # of letters, location of first 'e', etc.)
+		printSecondAndLastLetter(myWord);
+		System.out.println("Index of first 'e': " + findTheE(myWord));
+		System.out.println("Length of the string: " + getLength(myWord));
+		printFirstAndLastThree(myWord);
+		
+		//Closes the scanner
+		myReader.close();
+	}
+	
+
+/**
+* Method to print the second and last letter of the string
+*/
+	public static void printSecondAndLastLetter(String myWord)
+	{
+		System.out.println("Second letter: " + myWord.charAt(1));
+		System.out.println("Last letter: " + myWord.charAt(myWord.length() - 1));
+	}
+	
+	
+/**
+* Method to find the index of the first 'e' in the string
+*/
+	public static int findTheE(String myWord) 
+	{
+        return myWord.indexOf('e');
+	}
+	
+
+/**
+* Method to get the length of the string
+*/
+	public static int getLength(String myWord) 
+	{
+		return myWord.length();
+	}
+	
+	
+/**
+* Method to print the first and last three characters of the string
+*/
+	public static void printFirstAndLastThree(String myWord) 
+	{
+		System.out.println("First three characters: " + myWord.substring(0, 3));
+        System.out.println("Last three characters: " + myWord.substring(myWord.length() - 3));
+	}
+	
+	
+}
