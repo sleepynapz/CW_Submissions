@@ -3,3 +3,20 @@ public String makeOutWord(String out, String word) {
   String out2=out.substring(2);
   return out1 + word + out2;
 }
+
+public String extraEnd(String str) {
+  String twoChar=str.substring(str.length() - 2);
+  return twoChar + twoChar +twoChar;
+}
+
+public String firstTwo(String str) {
+  if (str.length() < 2) 
+  {
+  return str;
+  }
+  else
+  {
+  return str.substring(0, 2);
+  }
+}
+
