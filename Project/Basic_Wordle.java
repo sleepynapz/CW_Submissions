@@ -24,7 +24,7 @@ public class Basic_Wordle
         //If the guess is less more or less than the 5-letter max/min it'll say it's invalid
         if (guess.length() != 5 || repeatingLetters(guess, 0)) 
         {
-            System.out.println("Invalid guess... Word is not a 5-letter word OR has repeating letters");
+            System.out.println("Pleae try again... Your guess is not a 5-letter word OR has repeating letters");
             playGame(); 
             return;
         } 
