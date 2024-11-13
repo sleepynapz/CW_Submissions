@@ -9,7 +9,7 @@ public class Basic_Wordle
 	//Welcomes the player into the game, starts the game and closes he scanner
 	public static void main(String[] args) 
 {
-	System.out.println("Welcome to Wordle! Try to guess the 5-letter word.");
+	System.out.println("Welcome to Wordle!");
     playGame();
 	scanner.close();
 	}
@@ -18,13 +18,13 @@ public class Basic_Wordle
 	private static void playGame() 
 	{
         //Let's the player make a guess
-		System.out.print("Please make a guess: ");
+		System.out.print("Your guess (5 letters only): ");
         String guess = scanner.nextLine().toLowerCase();
 
         //If the guess is less more or less than the 5-letter max/min it'll say it's invalid
         if (guess.length() != 5 || repeatingLetters(guess, 0)) 
         {
-            System.out.println("Invalid guess. Please enter a 5-letter word with no repeating letters.");
+            System.out.println("Invalid guess... Word is not a 5-letter word OR has repeating letters");
             playGame(); 
             return;
         } 
@@ -38,7 +38,7 @@ public class Basic_Wordle
         //If the guess is correct it congratulate the player otherwise it'll play the game again
         if (guess.equals(solution)) 
         {
-        System.out.println("Good job! The word was " + solution + "!");
+        System.out.println("Congratulations! The word was " + solution + "!");
         } 
         else 
         {
