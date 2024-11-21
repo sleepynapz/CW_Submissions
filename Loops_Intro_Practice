@@ -1,0 +1,59 @@
+public class LoopsIntro 
+{
+	public static void main(String[] args) 
+	{
+//#1
+	System.out.println(countLetters("abqcdqefghqqijk",'q'));
+	
+	
+//#2
+	System.out.println(getFactorial(5));
+	
+	
+//#3
+	printIfRepeats("abcd");
+	}
+	
+	
+//#1
+	public static int countLetters(String str, char ch)
+	{
+		int count=0;
+		for(int i=0; i<str.length();i++)
+		{
+		if (str.charAt(i)==ch)
+		{
+		count++;
+		}
+		}
+		return count;
+	}
+	
+	
+//#2
+	public static int getFactorial(int num) 
+	{
+	    int factorial=1;
+	    for (int i=1;i<=num;i++) 
+	{
+	    factorial*= i;
+	}
+	    return factorial;
+	}
+	 
+	 
+//#3
+	public static void printIfRepeats(String str) 
+	{
+		 boolean hasRepeats = false;
+	     for (int i=0; i<str.length()-1;i++) 
+	{
+	     if (str.charAt(i) == str.charAt(i + 1)) 
+	{
+	     hasRepeats=true;
+	     break;
+	}
+	}
+	     System.out.println(hasRepeats);
+	}
+}
