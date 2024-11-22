@@ -1,0 +1,21 @@
+public class Test 
+{
+	public static void main(String[] args) 
+	{
+		System.out.print(findisLeapYear(2003));	
+	}
+	
+	
+	public static boolean findisLeapYear(int year)
+	{
+		if((year%4==0)&&(year%100!=0||year%400==0))
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+}
+
