@@ -1,33 +1,33 @@
 /*
- *
- *
+ * The user will give a number to the code and the code will run an indicator for each month until the indicator equals the number that is given from the user
+ * Any number given by the user that is less than one or greater than twelve will result in an invalid statement
 */
 public static String getMonth(int n)
 	{
-		// 
+		// List of months passed as a String
 		String months = "January February March April May June "
 				+ "July August September October November December ";
 
-    //
+    // Sets up an increment of a minimum of one to a maximum of (inclusive) twelve 
 		for (int i = 1; i <= 12; i++)
 		{
-			// 
+			// Looks for the index of spaces (Space Locater)
 			int sL = months.indexOf(' ');
 
-      //
+      // Runs if the user input is equal to the i
 			if (n == i)
 			{
-        //
+        // Returns the substring from 0 to the space 
 				return months.substring(0, sL);
 			}
-      //
+      // Runs if the user input is not equal to the i
 			else
 			{
-        //
+        // Reassigns/Changes to the next month after the previously tested one 
 				months = months.substring(sL + 1);
 			}
 		}
-		//
-		return " /* What String would you put here? */ ";
+		// In cases when n is less than one and greater than twelve, it returns an error
+		return "Invalid month number";
 		
 	}
