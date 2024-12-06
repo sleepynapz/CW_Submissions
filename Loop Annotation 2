@@ -9,7 +9,7 @@
 		/*
 		 * This line below works even though str was not instantiated in the method.
 		 * What conclusion can you draw from this fact?
-		 * 
+		 * It was declared beforehand in the same class.
 		 * 
 		 * 
 		 * 
@@ -19,7 +19,7 @@
 		
 		/*
 		 * Why might executing the loop below result in a syntax error?
-		 * The 
+		 * 
 		 * 
 		 * 
 		 */
