@@ -1,7 +1,8 @@
 	/**
 	 * This method is not static. What does this mean about how the method works? After code tracing, also answer
    	 * the following question: what does this method do?
-	 * The method is not static which means that we must create 
+	 * The method is not static, meaning we must create our own words to test. 
+	 * This method locates the letter users want to find in a word they created/inputted. 
 	 */
 	public int doesSomething(char c)
 	{
@@ -18,7 +19,7 @@
 		
 		/*
 		 * Why might executing the loop below result in a syntax error?
-		 * 
+		 * The 
 		 * 
 		 * 
 		 */
