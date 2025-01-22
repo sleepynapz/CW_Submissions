@@ -1,0 +1,16 @@
+public class Altering_Arrays_Problem {
+
+	public static void main(String[] args) {
+		int[] nums= {5, 0, 8, 20};
+	}
+
+	public static int[] subract5FromAll4(int[] arr)
+	{
+		int[] nums2=new int[arr.length];
+		for(int i=0;i<arr.length;i++)
+		 {
+			nums2[i]=arr[i]-5;	 
+		}
+		return nums2; 
+	}
+}
