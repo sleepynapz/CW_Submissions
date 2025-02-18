@@ -20,3 +20,171 @@ public boolean no23(int[] nums) {
   return true;
 }
 
+public int[] makeLast(int[] nums) {
+  int len= nums.length*2;
+	int[] dubsLen= new int[len];
+	dubsLen[len-1]= nums[nums.length-1];
+	return dubsLen;
+}
+
+public boolean double23(int[] nums)
+{
+	if(nums.length==2)
+	{
+		if(nums[0]==2&&nums[1]==2)
+			return true;
+		return (nums[0]==3&&nums[1]==3);
+	}
+	return false;
+}
+
+public boolean double23(int[] nums)
+{
+	if(nums.length==2)
+	{
+		if(nums[0]==2&&nums[1]==2)
+			return true;
+		return (nums[0]==3&&nums[1]==3);
+	}
+	return false;
+}
+
+public int[] fix23(int[] nums) {
+  int[] fixArr= {nums[0], nums[1], nums[2]};
+	if(nums[0]==2&&nums[1]==3)
+			fixArr[1]= 0;
+	if(nums[1]==2&&nums[2]==3)
+			fixArr[2]= 0;
+	return fixArr;
+}
+
+public int start1(int[] a, int[] b) {
+  int ones= 0;
+	if(a.length>=1&&a[0]==1)
+		ones+=1;
+	if(b.length>=1&&b[0]==1)
+		ones+=1;
+	return ones;
+}
+
+public int[] biggerTwo(int[] a, int[] b) {
+  int sumArr= a[0]+a[1]-b[0]-b[1];
+	if(sumArr>=0)
+		return a;
+	return b;
+}
+
+public int[] makeMiddle(int[] nums) {
+  int[] midArr=new int[2];
+	int halfMid=nums.length/2;
+	midArr[0]=nums[halfMid-1];
+	midArr[1]=nums[halfMid];
+	return midArr;
+}
+
+public int[] plusTwo(int[] a, int[] b) {
+  int[] allArr= {a[0], a[1], b[0], b[1]};
+	return allArr;
+}
+
+public int[] swapEnds(int[] nums) {
+  int tempArr= nums[0];
+	nums[0]= nums[nums.length-1];
+	nums[nums.length-1]= tempArr;
+	return nums;
+}
+
+public int[] midThree(int[] nums) {
+  int[] midArr= new int[3];
+	int mid= nums.length/2;
+	midArr[0]= nums[mid-1];
+	midArr[1]= nums[mid];
+	midArr[2]= nums[mid+1];
+	return midArr;
+}
+
+public int maxTriple(int[] nums) {
+  int maxNum=nums[0];
+	if(maxNum<=nums[nums.length-1])
+		maxNum=nums[nums.length-1];
+	if(maxNum<=nums[nums.length/2])
+		maxNum=nums[nums.length/2];
+	return maxNum;
+}
+
+public int[] frontPiece(int[] nums) {
+  int[] frontNums;
+  if(nums.length>=2)
+	{
+		frontNums=new int[2];
+		frontNums[0]=nums[0];
+		frontNums[1]=nums[1];
+	}
+	else if(nums.length==1)
+	{
+		frontNums=new int[1];
+		frontNums[0]=nums[0];
+	}
+	else
+		frontNums=new int[0];
+	return frontNums;
+}
+
+public boolean unlucky1(int[] nums) {
+  int unLucky=nums.length-1;
+	if(unLucky>=2)
+	{
+		if((nums[0]==1&&nums[1]==3)||(nums[1]==1&&nums[2]==3))
+			return true;
+		return (nums[unLucky-1] == 1 && nums[unLucky] == 3);
+	}
+	if(unLucky==1)
+		return ((nums[0]==1&&nums[1]==3)||(nums[1]==1&&nums[2]==3));
+	return false;
+}
+
+public int[] make2(int[] a, int[] b) {
+  int[] combArr= new int[2];
+	if(a.length>=2)
+	{
+		combArr[0]= a[0];
+		combArr[1]= a[1];
+	}
+	else if(a.length==1)
+	{
+		combArr[0]= a[0];
+		combArr[1]= b[0];
+	}
+	else
+	{
+		combArr[0]= b[0];
+		combArr[1]= b[1];	
+	}
+	return combArr;
+}
+
+public int[] front11(int[] a, int[] b) {
+  int[] frontArr;
+	if(a.length>=1)
+	{
+		if(b.length>=1)
+		{
+			frontArr= new int[2];
+			frontArr[0]= a[0];
+			frontArr[1]= b[0];
+		}
+		else
+		{
+			frontArr=new int[1];
+			frontArr[0]=a[0];
+		}
+	}
+	else if(b.length>=1)
+	{
+		frontArr=new int[1];
+		frontArr[0]=b[0];
+	} 
+	else
+		frontArr=new int[0];
+	return frontArr; 
+}
