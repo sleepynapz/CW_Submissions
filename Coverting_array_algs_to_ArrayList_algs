@@ -1,0 +1,53 @@
+import java.util.ArrayList;
+
+public class Coverting_array_algs_to_ArrayList_algs {
+
+	public static void main(String[] args) {
+		ArrayList<Integer> nums = new ArrayList<Integer>();
+		nums.add(7);
+		nums.add(3);
+		nums.add(5);
+		nums.add(1);
+		nums.add(9);
+		nums.add(5);
+		nums.add(6);
+	}
+		
+		
+		//1. Create a method checkFor4() that is passed an ArrayList and returns the index of the first 4 if that array has a 4 and -1 if that array has no 4's. 
+		public static int checkFor4(ArrayList<Integer>numsList) {
+			for(int i=0; i<numsList.size(); i++) {
+				if(numsList.get(i)==4) {
+				return i;
+		}
+	}
+				return -1;
+	}
+		
+		
+		//2. Create a method ridAllFives() that is passed an ArrayList nums and altars that ArrayList without returning anything. 
+		//The ArrayList will have any 5’s deleted from nums.
+		 public static void ridAllFives(ArrayList<Integer>numsRid) {
+			 for(int i=0; i<numsRid.size(); i++) {
+				if(numsRid.get(i)==5) {
+				numsRid.remove(i);
+				}
+			 }
+	}
+		
+			 
+		//3. Create a method bubbleSort() that is passed an ArrayList and sorts it using bubblesort.
+		public static ArrayList<Integer> bubbleSort(ArrayList<Integer>numsSort) {
+			 int n=numsSort.size();
+			     for (int i=0; i<n-1;i++) {
+			         for (int j=0;j<n-1-i;j++) {
+			              if (numsSort.get(j)>numsSort.get(j+1)) { 
+			              int temp=numsSort.get(j);
+			              numsSort.set(j, numsSort.get(j+1));
+			              numsSort.set(j+1, temp);
+			       }
+			    }
+			 }
+			 return numsSort;
+		}
+	}	
