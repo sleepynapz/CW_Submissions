@@ -1,0 +1,168 @@
+public class Algorithms_Project {
+	public static void main(String[] args) {
+		int[] arr = {4, 5, 5, 2, 1};
+	}
+	
+	
+	//1. Return the smallest number in the array. 
+	public static int smallNum(int[] arr) {		
+		//Assume the first element is the smallest
+		int minArr=arr[0];
+        //Loop through the rest of the array
+		for (int i=1; i<arr.length; i++) {
+			//If a smaller number is found
+			if (arr[i]<minArr) {
+				//Update minArr
+				minArr=arr[i];
+            }
+        }
+        return minArr;
+    }
+	
+	
+	//2. Return the index of the smallest number in the array. 
+	public static int smallIndenx(int[] arr) {
+		//Assume the first index is the smallest
+		int minIndex=0;
+		//Loop through the array
+		for (int i=1; i<arr.length; i++) {
+			//If a smaller number is found
+			if (arr[i]<arr[minIndex]) {
+				//Update minIndex
+				minIndex=i;
+            }
+        }
+		//Return the index of the smallest number
+        return minIndex;
+    }
+	
+	
+	//3. Return the average of all numbers in the array. 
+	public static double averageNums(int[] arr) {
+		//Initialize sum to 0
+		double sum=0;
+		//Loop through the array
+		for (int i=1; i<arr.length; i++) {
+			//Add each element to sum
+			sum+= arr[i];	
+		}
+		//Return the average
+		return sum/arr.length;
+	}
+	
+	
+	//4. Return true if all numbers in the array are even, and return false otherwise.
+	public static boolean evenNums(int[] arr) {
+		//Loop through the array
+		for (int i=1; i<arr.length; i++) {
+			//If an odd number is found
+			if (i%2!=0) {
+                //Return false immediately
+				return false; 
+            }
+        }
+		//Return true if all numbers are even
+        return true;
+    }
+	
+	
+	//5. If the array ever has two consecutive 5's, change them to 0's. 
+	//(For example, passing {4, 5, 5, 2, 1} changes the array to {4, 0, 0, 2, 1} ).
+	public static int[] consecutiveFives(int[] arr) {
+		//Loop through the array until second last element
+		for (int i=1; i<arr.length; i++) {
+			//Check for consecutive 5's
+			if (arr[i]==5) {
+				arr[i]=0;
+			}
+		}
+		//Return modified array
+		return arr;
+	}
+	
+	
+	//6. Return true if any number shows up three times in a row, and return false otherwise. 
+	public static boolean threeRow(int[] arr) {
+		//Loop until the third last element
+		for (int i=0; i<arr.length-2; i++) {
+			//Check for three consecutive identical numbers
+			if (arr[i]==arr[i + 1]&&arr[i]==arr[i + 2]) {
+				//Return true if found
+				return true; 
+            }
+        }
+		//Return false if no triplet is found
+        return false; 
+	}
+	
+	
+	//7. Pass an array of ints and an int to be searched for. 
+	//Return how many times that int shows up in the array. (For example, passing ( {4, 5, 5, 2, 1} , 5) returns 2 because 5 shows up twice)
+	public static int showUp(int[] arr, int targetNum) {
+		//Initialize count to 
+		int count=0;
+			//Loop through the array
+			for(int i=0; i<arr.length;i++) {
+				// If the element matches targetNum
+				if(arr[i] == targetNum) {
+					// Increment count
+					count++;
+				}
+		   }
+			// Return the total count
+			return count;
+	   }
+	
+	//8. Alter an array so that is the backwards version of the array initially passed 
+	//(for example, passing {4, 5, 5, 2, 1} changes the array to {1, 2, 5, 5, 4})
+	public static int[] reverseArr(int[] arr) {
+		//Create a new array of the same length
+		int[] reversedCopy= new int[arr.length];
+			//Loop through the array
+			for (int i=0; i<arr.length; i++) {
+				//Copy elements in reverse order
+				reversedCopy[i] = arr[arr.length-1-i];
+        	}
+		//Return reversed array
+		return reversedCopy;
+    }
+	
+	
+	//9. Shift all elements in an array to the right. 
+	//(For example, passing {4, 5, 5, 2, 1} changes the array to {1, 4, 5, 5, 2})
+	public static int[] shiftRight(int[] arr) {
+		//Create a new array of the same length
+		int[] shiftedArr = new int[arr.length];
+			//Loop through the array
+			for (int i=0; i<arr.length-1; i++) {
+	            //Shift elements to the right
+				shiftedArr[i + 1] = arr[i];
+	   }
+			//Move last element to the first position
+	        shiftedArr[0] = arr[arr.length-1];
+	   // Return shifted array 
+	   return shiftedArr;
+	}
+	
+	
+	//10. Use either selection sort or insertion sort to sort an array. 
+	//(For example, passing {4, 5, 5, 2, 1} changes the array to {1, 2, 4, 5, 5})
+	public static void insertionSort(int[] arr) {
+		int n=arr.length;
+			//Loop through the array starting from index 1
+	        for (int i=1; i<n; i++) {
+	        	//Store the current element
+	        	int temp=arr[i];
+	        	//Initialize j to the previous index
+	        	int j = i - 1; 
+	        // Shift elements greater than temp
+	        while (j>=0&&arr[j]>temp) {
+	        	//Shift element to the right
+	            arr[j + 1] = arr[j];
+	            j--;
+	        }
+	        //Insert temp at the correct position
+	        arr[j+1]=temp; 
+	       }
+	   }
+}
