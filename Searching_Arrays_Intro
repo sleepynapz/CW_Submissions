@@ -1,0 +1,37 @@
+public class Searching_Arrays_Intro {
+	public static void main(String[] args) {
+		int[] testArray = {12, 4, 2, 45, 3, 400, -99, 3};
+        
+        System.out.println(checkFour(testArray));
+        System.out.println(countFor4(testArray));
+        System.out.println(checkForFour4(testArray));
+	}
+	
+	
+	//1. Create a method checkFor4() that is passed an int array and returns true if that array has a 4 and false if that array has no 4's. 
+	public static boolean checkFour(int[] arr) {
+        for (int num:arr) {
+            if (num==4) {
+                return true;
+            }
+        }
+        return false;
+    }
+	
+	
+	//2. Create a method countFor4() that is passed an int array and returns how many times 4 shows up in the array. 
+	public static int countFor4(int[] arr) {
+        int count=0;
+        for (int num:arr) {
+            if (num==4) {
+                count++;
+            }
+        }
+        return count;
+    }
+	
+	//3. Create a method checkForFour4() that is passed an int array and return true if the array has exactly four 4's in it. 
+	public static boolean checkForFour4(int[] arr) {
+	        return countFor4(arr)==4;
+	    }
+}
