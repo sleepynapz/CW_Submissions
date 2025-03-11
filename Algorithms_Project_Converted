@@ -1,0 +1,152 @@
+import java.util.ArrayList;
+public class Algorithms_Project_Converted {
+	public static void main(String[] args) {
+		// Initialize an ArrayList with elements
+        ArrayList<Integer> arr = new ArrayList<>();
+        arr.add(4);
+        arr.add(5);
+        arr.add(5);
+        arr.add(2);
+        arr.add(1);
+    }
+
+	//1. Return the smallest number in the ArrayList.
+    public static int smallNum(ArrayList<Integer> arr) {
+        //Start by assuming the first element is the smallest
+        int minArr=arr.get(0);
+        //Loop through the list and update minArr 
+        for (int num:arr) {
+        	//If a smaller number is found
+            if (num<minArr) {
+                minArr=num;
+            }
+        }
+        //Return the smallest number
+        return minArr;
+    }
+
+    //2. Return the index of the smallest number in the ArrayList. 
+    public static int smallIndex(ArrayList<Integer> arr) {
+        //Assume the first index has the smallest number
+        int minIndex=0;
+        //Loop through the list to find the smallest number's index
+        for (int i=1; i<arr.size(); i++) {
+            if (arr.get(i)<arr.get(minIndex)) {
+                minIndex=i;
+            }
+        }
+        //Return the index of the smallest number
+        return minIndex;
+    }
+
+    //3. Return the average of all numbers in the ArrayList. 
+    public static double averageNums(ArrayList<Integer> arr) {
+        //Initialize sum to 0
+        double sum=0;
+        //Calculate the sum of all numbers in the list
+        for (int num : arr) {
+            sum+=num;
+        }
+        //Return the average by dividing the sum by the list size
+        return sum/arr.size();
+    }
+
+    //4. Return true if all numbers in the ArrayList are even, and return false otherwise.
+    public static boolean evenNums(ArrayList<Integer> arr) {
+        //Check each number to see if it is odd
+        for (int num : arr) {
+            if (num%2!=0) {
+                //Return false immediately if an odd number is found
+                return false;
+            }
+        }
+        //Return true if all numbers are even
+        return true;
+    }
+
+    //5. If the ArrayList ever has two consecutive 5's, change them to 0's. 
+    //(For example, passing {4, 5, 5, 2, 1} changes the array to {4, 0, 0, 2, 1} ).
+    public static void consecutiveFives(ArrayList<Integer> arr) {
+        //Loop through the list to check for consecutive 5's
+        for (int i=0;i<arr.size()-1; i++) {
+            if (arr.get(i)==5&&arr.get(i+1)==5) {
+                //Replace both consecutive 5's with 0
+                arr.set(i, 0);
+                arr.set(i+1, 0);
+            }
+        }
+    }
+
+    //6. Return true if any number shows up three times in a row, and return false otherwise. 
+    public static boolean threeRow(ArrayList<Integer> arr) {
+        //Loop through the list to check for three consecutive identical numbers
+        for (int i=0; i<arr.size()-2; i++) {
+            if (arr.get(i).equals(arr.get(i+1))&&arr.get(i).equals(arr.get(i+2))) {
+                //Return true if found
+                return true;
+            }
+        }
+        //Return false if no triplet is found
+        return false;
+    }
+
+    //7. Pass an ArrayList of Integers and a value to be searched for. Return how many times that int shows up in the ArrayList. 
+    //(For example, passing ( {4, 5, 5, 2, 1} , 5) returns 2 because 5 shows up twice)
+    public static int showUp(ArrayList<Integer> arr, int targetNum) {
+        //Initialize a counter to track occurrences
+        int count=0;
+        //Loop through the list and increment count for each match
+        for (int num : arr) {
+            if (num==targetNum) {
+                count++;
+            }
+        }
+        //Return the total count of occurrences
+        return count;
+    }
+
+    //8. Alter an ArrayList so that is the backwards version of the ArrayList initially passed 
+    //(for example, passing {4, 5, 5, 2, 1} changes the array to {1, 2, 5, 5, 4})
+    public static ArrayList<Integer> reverseArr(ArrayList<Integer> arr) {
+        //Create a new list to store the reversed elements
+        ArrayList<Integer> reversed = new ArrayList<>();
+        //Add elements from the original list to the new list in reverse order
+        for (int i=arr.size()-1;i>=0; i--) {
+            reversed.add(arr.get(i));
+        }
+        //Return the reversed list
+        return reversed;
+    }
+
+    //9. Shift all elements in an ArrayList to the right. 
+    //(For example, passing {4, 5, 5, 2, 1} changes the array to {1, 4, 5, 5, 2})
+    public static ArrayList<Integer> shiftRight(ArrayList<Integer> arr) {
+        //Create a new list for the shifted elements
+        ArrayList<Integer> shifted = new ArrayList<>();
+        //Add the last element of the original list to the first position of the new list
+        shifted.add(arr.get(arr.size()-1));
+        //Add the remaining elements to the new list in order
+        for (int i=0; i< arr.size()-1; i++) {
+            shifted.add(arr.get(i));
+        }
+        //Return the shifted list
+        return shifted;
+    }
+
+    //10. Use either selection sort or insertion sort to sort an ArrayList. 
+    //(For example, passing {4, 5, 5, 2, 1} changes the array to {1, 2, 4, 5, 5})
+    public static void insertionSort(ArrayList<Integer> arr) {
+        //Perform insertion sort on the list
+        for (int i=1; i<arr.size(); i++) {
+            int temp=arr.get(i); // Store the current element
+            int j=i-1;
+            //Shift elements greater than temp to the right
+            while (j>=0&&arr.get(j)>temp) {
+                arr.set(j+1,arr.get(j));
+                j--;
+            }
+            //Insert temp at the correct position
+            arr.set(j+1, temp);
+        }
+    }
+}
