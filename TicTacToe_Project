@@ -1,0 +1,115 @@
+import java.util.Scanner;
+
+public class TicTacToe_Project {
+    public static void main(String[] args) {
+        // Initialize the game board
+        char[][] playerBoard = new char[3][3];
+        initializeBoard(playerBoard);
+
+        // Variables to keep track of the game state
+        boolean gameOver = false;
+        // Player 1 starts with 'X'
+        char currentPlayer= 'X'; 
+        Scanner userScanner=new Scanner(System.in);
+
+        
+        
+        // Game loop
+        while (!gameOver) {
+            // Print the current state of the board
+            printBoard(playerBoard);
+
+            // Prompt the current player to choose a position
+            System.out.println("Player " + currentPlayer + ", enter your row (0, 1, or 2):");
+            int row = userScanner.nextInt();
+            System.out.println("Player " + currentPlayer + ", enter your column (0, 1, or 2):");
+            int col = userScanner.nextInt();
+
+            // Validate the input and place the tile if valid
+            if (row>=0 && row<3 && col>=0 && col<3 && playerBoard[row][col]=='-') {
+            	playerBoard[row][col]=currentPlayer;
+
+                // Check if the current player has won
+                if (checkWin(playerBoard, currentPlayer)) {
+                    printBoard(playerBoard);
+                    System.out.println("Player " + currentPlayer + " wins!");
+                    gameOver=true;
+                } 
+                // Check if the game is a tie
+                else if (checkTie(playerBoard)) {
+                    printBoard(playerBoard);
+                    System.out.println("The game is a tie!");
+                    gameOver=true;
+                } 
+                // Switch to the other player
+                else {
+                    if (currentPlayer=='X') {
+                        currentPlayer='O';
+                    } else {
+                        currentPlayer='X';
+                    }
+                }
+            } else {
+                System.out.println("Invalid position! Try again.");
+            }
+        }
+
+        userScanner.close();
+    }
+
+    
+    // Method to initialize the board with empty tiles
+    public static void initializeBoard(char[][] board) {
+        for (int i=0; i<board.length; i++) {
+            for (int j=0; j<board[i].length; j++) {
+                board[i][j]='-';
+            }
+        }
+    }
+
+    
+    // Method to print the current state of the board
+    public static void printBoard(char[][] board) {
+        for (int i=0; i<board.length; i++) {
+            for (int j=0; j<board[i].length; j++) {
+                System.out.print(board[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
+
+    
+    // Method to check if a player has won
+    public static boolean checkWin(char[][] board, char player) {
+        // Checks rows and columns
+        for (int i = 0; i < 3; i++) {
+            if ((board[i][0]==player && board[i][1]==player && board[i][2]==player) ||
+                (board[0][i]==player && board[1][i]==player && board[2][i]==player)) {
+                return true;
+            }
+        }
+
+        // Checks diagonals
+        if ((board[0][0]==player && board[1][1]==player && board[2][2]==player) ||
+            (board[0][2]==player && board[1][1]==player && board[2][0]==player)) {
+            return true;
+        }
+
+        return false;
+    }
+
+    
+    // Method to check if the game is a tie
+    public static boolean checkTie(char[][] board) {
+        for (int i=0; i<board.length; i++) {
+            for (int j=0; j<board[i].length; j++) {
+                if (board[i][j]== '-') {
+                	// There's still an empty spot, so it's not a tie
+                	return false; 
+                }
+            }
+        }
+        // All spots are filled, and there's no winner
+        return true; 
+    }
+}
