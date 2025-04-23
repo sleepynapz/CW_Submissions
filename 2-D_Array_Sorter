@@ -1,0 +1,124 @@
+import java.util.Arrays;
+public class ArraySorter {
+
+    // Create a method that is passed a 2-D array of doubles and sorts it from left-right, top-down order.
+    public static double[][] sortLeftRightTopDown(double[][] array) {
+        int rows=array.length;
+        int cols=array[0].length;
+        double[] flattened = new double[rows*cols];
+        int index=0;
+        for (int i=0; i<rows; i++) {
+            for (int j=0; j<cols; j++) {
+                flattened[index] = array[i][j];
+                index++;
+            }
+        }
+
+        
+        bubbleSort(flattened);
+
+        index=0;
+        for (int i=0; i<rows; i++) {
+            for (int j=0; j<cols; j++) {
+                array[i][j]=flattened[index];
+                index++;
+            }
+        }
+
+        
+        return array;
+    }
+
+    
+    // Then create a method that is passed a 2-D array of doubles and sorts it from top-down, left-right order. 
+    public static double[][] sortTopDownLeftRight(double[][] array) {
+        int rows = array.length;
+        int cols = array[0].length;
+        double[][] transposed = new double[cols][rows];
+        for (int i=0; i<rows; i++) {
+            for (int j=0; j<cols; j++) {
+                transposed[j][i]=array[i][j];
+            }
+        }
+
+        
+        double[] flattened = new double[rows * cols];
+        int index=0;
+        for (int i=0; i<cols; i++) {
+            for (int j=0; j<rows; j++) {
+                flattened[index]=transposed[i][j];
+                index++;
+            }
+        }
+
+        
+        bubbleSort(flattened);
+
+        
+        index=0;
+        for (int i=0; i<cols; i++) {
+            for (int j=0; j<rows; j++) {
+                transposed[i][j]=flattened[index];
+                index++;
+            }
+        }
+
+        
+        double[][] sortedArray = new double[rows][cols];
+        for (int i=0; i<cols; i++) {
+            for (int j=0; j<rows; j++) {
+                sortedArray[j][i]=transposed[i][j];
+            }
+        }
+
+        
+        return sortedArray;
+    }
+
+    
+    //Bubble Sort implementation
+    public static void bubbleSort(double[] array) {
+        int n=array.length;
+        boolean swapped;
+        do {
+            swapped = false;
+            for (int i=0; i<n-1; i++) {
+                if (array[i]>array[i+1]) {
+                    double temp=array[i];
+                    array[i]=array[i + 1];
+                    array[i+1]=temp;
+                    swapped=true;
+                }
+            }
+        } while (swapped);
+    }
+
+    
+    // Main method for testing
+    public static void main(String[] args) {
+        double[][] array = {
+            {6.5, 54.2, 300.54},
+            {32.54, 48.234, 12.67}
+        };
+
+        
+        System.out.println("Original Array");
+        for (int i=0; i<array.length; i++) {
+            System.out.println(Arrays.toString(array[i]));
+        }
+
+        
+        sortLeftRightTopDown(array);
+        System.out.println("\nSorted Left-Right, Top-Down");
+        for (int i=0; i<array.length; i++) {
+            System.out.println(Arrays.toString(array[i]));
+        }
+
+        
+        sortTopDownLeftRight(array);
+        System.out.println("\nSorted Top-Down, Left-Right");
+        for (int i=0; i<array.length; i++) {
+            System.out.println(Arrays.toString(array[i]));
+        }
+    }
+}
