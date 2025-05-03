@@ -1,0 +1,57 @@
+
+public class Dog {
+	//data attributes
+	protected int age=3;
+	protected String name="";
+	protected boolean isAdopted=false;
+	
+	
+	//constructor
+	public Dog(int a, String name, boolean ad) {
+		age=a;
+		this.name=name;
+		isAdopted=ad;
+	}
+	
+	
+	//gets the adoption status
+	public String getAdoptionStatus() {
+		if (isAdopted==true) {
+			System.out.println(name + " has been adopted");
+		}
+		return name + " is not adopted";
+	}
+	
+	
+	//states the age of the pet
+	public void stateAge() {
+		System.out.println(name + " is " + age + " years old ");
+	}
+	
+	
+	//increases the age of the pet
+	public void increaseAge() {
+		age++;
+	}
+	
+	
+	//prints whatever information about the dog just by printing the name
+	public String toString()
+	{
+		stateAge();
+		if (isAdopted)
+		{
+			return "I have a been chosen!";
+		}
+		return "I haven't found a home yet womp womp";
+	}
+	
+	
+	//checks if two dogs have the same information  
+	public boolean equals(Dog doggy) {
+		if(this.age==doggy.age && this.name.equals(doggy.name) && this.isAdopted==doggy.isAdopted) {
+			return true;
+		}
+		return false;
+	}
+}
