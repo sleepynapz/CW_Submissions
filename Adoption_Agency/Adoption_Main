@@ -1,0 +1,36 @@
+
+public class Adoption_Main {
+	public static void main(String[] args) {
+		//creates new dogs and puppies
+		Dog Richard=new Dog(99, "Richard", false);
+		Puppy_Dog John=new Puppy_Dog(13, "John", false, true);
+		Puppy_Dog Jaythan=new Puppy_Dog(58, "Jaythan", true, true);
+		Puppy_Dog Jaythan2=new Puppy_Dog(58, "Jaythan", true, true);
+		
+		
+		//prints adoption status and age
+		System.out.println(Richard.getAdoptionStatus());
+		System.out.println(John.getAdoptionStatus());
+		Richard.stateAge();
+		John.stateAge();
+		System.out.println();
+		
+		
+		//increases age and prints it again
+		Richard.increaseAge();
+		John.increaseAge();
+		Richard.stateAge();
+		John.stateAge();
+		System.out.println();
+		
+		
+		//prints status of dogs
+		System.out.println(Richard);
+		System.out.println(John);
+		System.out.println();
+		
+		
+		//prints true or false if one dog/puppy has the same information as another
+		System.out.println(Jaythan.equals(Jaythan2));
+	}
+}
