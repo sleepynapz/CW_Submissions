@@ -1,0 +1,50 @@
+
+public class Puppy_Dog extends Dog {
+	//exclusive data attributes
+	boolean isFed=true;
+	
+	
+	//exclusive constructor
+	public Puppy_Dog(int a, String name, boolean ad, boolean f) {
+		super(a,name,ad);
+		isFed=f;
+	}
+	
+	
+	//states the age of the pet
+	public void stateAge() {
+		System.out.println(name + " is " + age + " months old ");
+	}
+	
+	
+	//feeds the puppy and makes it true
+	public void feedPup() {
+		isFed=true;
+	}
+	
+	
+	//increase age and sets the feeding to false
+	public void increaseAge() {
+		super.increaseAge();
+		isFed=false;
+	}
+	
+	
+	//overrides the dog to add if the puppy has or hasn't been fed
+	public String toString()
+	{
+		if(isFed) {
+			return super.toString() + "The puppy has been fed.";
+		}
+		return super.toString() + " The puppy has not been fed yet.";
+	}
+	
+	
+	//overrides the dog to check if two dogs have the same information that also includes if they're fed
+	public boolean equals(Puppy_Dog lildoggy) {
+		if (this.isFed==lildoggy.isFed && super.equals(lildoggy)) {
+			return true;
+		}
+		return false;
+	}
+}
