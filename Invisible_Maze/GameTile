@@ -1,0 +1,67 @@
+
+public class GameTile {
+	//Tile contains the player
+	private boolean hasPlayer;
+    //Tile has been revealed
+	private boolean isRevealed;
+    //Tile has been revealed
+	private boolean isWall;
+    
+	
+	//Creates a new GameTile with all attributes set to false
+    public GameTile() {
+        this.hasPlayer=false;
+        this.isRevealed=false;
+        this.isWall=false;
+    }
+    
+    
+    //Checks if the tile has a player
+    public boolean hasPlayer() {
+        return hasPlayer;
+    }
+    
+    
+    //Sets whether the tile has a player
+    public void setHasPlayer(boolean hasPlayer) {
+        this.hasPlayer=hasPlayer;
+    }
+    
+    
+    //Checks if the tile is revealed
+    public boolean isRevealed() {
+        return isRevealed;
+    }
+    
+    
+    //Sets whether the tile is revealed
+    public void setRevealed(boolean isRevealed) {
+        this.isRevealed=isRevealed;
+    }
+    
+    
+    //Checks if the tile is a wall
+    public boolean isWall() {
+        return isWall;
+    }
+    
+    
+    //Sets whether the tile is a wall
+    public void setWall(boolean isWall) {
+        this.isWall=isWall;
+    }
+    
+    
+    //Returns the string representation of the tile
+    public String toString() {
+        if (hasPlayer) {
+        	return "i";
+        } 
+        else if (isRevealed) {
+            return isWall ? "X" : "O";
+        } 
+        else {
+            return " ";
+        }
+    }
+}
