@@ -1,0 +1,38 @@
+
+public class Player {
+    //The row position of the player
+	private int rPos;
+    //The column position of the player
+	private int cPos;
+   
+	
+    //Creates a new Player at position
+	public Player() {
+        this.rPos=0;
+        this.cPos = 0;
+    }
+   
+	
+	//Gets the current row position
+    public int getRPos() {
+        return rPos;
+    }
+    
+    
+    //Sets the row position
+    public void setRPos(int rPos) {
+        this.rPos=rPos;
+    }
+    
+    
+    //Gets the current column position
+    public int getCPos() {
+        return cPos;
+    }
+    
+    
+    //Sets the column position
+    public void setCPos(int cPos) {
+        this.cPos=cPos;
+    }
+}
