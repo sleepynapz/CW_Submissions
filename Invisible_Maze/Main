@@ -1,0 +1,174 @@
+//Opens scanner
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        //Make the maze
+        GameTile[][] maze = new GameTile[5][5];
+        
+        //Fill the maze with tiles
+        for(int i=0; i<5; i++) {
+            for(int j=0; j<5; j++) {
+                maze[i][j] = new GameTile();
+            }
+        }
+        
+        
+        //Make walls to create a maze pattern
+        maze[0][4].setWall(true);
+        maze[1][0].setWall(true);
+        maze[1][2].setWall(true);
+        maze[2][2].setWall(true);
+        maze[2][4].setWall(true);
+        maze[3][0].setWall(true);
+        maze[3][2].setWall(true);
+        maze[4][0].setWall(true);
+        maze[4][2].setWall(true);
+        
+        
+        //Make a player
+        //Player starts at top-left corner (0,0)
+        Player p = new Player();
+        maze[0][0].setHasPlayer(true);
+        
+        //Game loop
+        Scanner scan = new Scanner(System.in);
+        boolean playing = true;
+        
+        //Main game loop
+        while(playing) {
+            //Print the maze
+            for(int i=0; i<5; i++) {
+                for(int j=0; j<5; j++) {
+                    System.out.print(maze[i][j] + " ");
+                }
+                System.out.println();
+            }
+            
+            
+            //Prompt for and get player's move
+            System.out.println("Where do you want to move? (w/a/s/d)");
+            String move = scan.nextLine();
+            
+            
+            //Handles the movement for "w"
+            if(move.equals("w")) {
+            	//Check if move stays within maze boundaries
+            	if(p.getRPos()-1>=0) {
+            		//Check if destination is not a wall
+            		if(!maze[p.getRPos()-1][p.getCPos()].isWall()) {
+            			//Remove player from current position
+            			maze[p.getRPos()][p.getCPos()].setHasPlayer(false);
+            			// Mark current position as revealed
+                        maze[p.getRPos()][p.getCPos()].setRevealed(true);
+                        //Update player position
+                        p.setRPos(p.getRPos()-1);
+                        //Place player in new position
+                        maze[p.getRPos()][p.getCPos()].setHasPlayer(true);
+                    } 
+                    else {
+                    	//Reveals wall that was hit
+                    	maze[p.getRPos()-1][p.getCPos()].setRevealed(true);
+                        System.out.println("That's a wall!");
+                    }
+                } 
+                else {
+                	//When player moves to outside maze boundaries
+                    System.out.println("Can't go that way!");
+                }
+            }
+            
+            
+            //Handles the movement for "s"
+            if(move.equals("s")) {
+            	//Check if move stays within maze boundaries
+                if(p.getRPos()+1 < 5) {
+                	//Check if destination is not a wall
+                    if(!maze[p.getRPos()+1][p.getCPos()].isWall()) {
+                    	//Remove player from current position
+                        maze[p.getRPos()][p.getCPos()].setHasPlayer(false); 
+                        //Mark current position as revealed
+                        maze[p.getRPos()][p.getCPos()].setRevealed(true);
+                        //Update player position
+                        p.setRPos(p.getRPos()+1);
+                        //Place player in new position
+                        maze[p.getRPos()][p.getCPos()].setHasPlayer(true);
+                    } 
+                    else {
+                    	//Reveals wall that was hit
+                        maze[p.getRPos()+1][p.getCPos()].setRevealed(true);
+                        System.out.println("That's a wall!");
+                    }
+                } 
+                else {
+                	//When player moves to outside maze boundaries
+                    System.out.println("Can't go that way!");
+                }
+            }
+           
+            
+          //Handles the movement for "a"
+            if(move.equals("a")) {
+            	//Check if move stays within maze boundaries
+                if(p.getCPos() - 1 >= 0) {
+                	//Check if destination is not a wall
+                    if(!maze[p.getRPos()][p.getCPos() - 1].isWall()) {
+                    	//Remove player from current position
+                        maze[p.getRPos()][p.getCPos()].setHasPlayer(false);
+                        //Mark current position as revealed
+                        maze[p.getRPos()][p.getCPos()].setRevealed(true);
+                        //Update player position
+                        p.setCPos(p.getCPos() - 1);
+                        //Place player in new position
+                        maze[p.getRPos()][p.getCPos()].setHasPlayer(true);
+                    } 
+                    else {
+                    	//Reveals wall that was hit
+                        maze[p.getRPos()][p.getCPos() - 1].setRevealed(true);
+                        System.out.println("That's a wall!");
+                    }
+                } 
+                else {
+                	//When player moves to outside maze boundaries
+                    System.out.println("Can't go that way!");
+                }
+            }
+            
+            
+          //Handles the movement for "d"
+            if(move.equals("d")) {
+            	//Check if move stays within maze boundaries
+                if(p.getCPos() + 1 < 5) {
+                	//Check if destination is not a wall
+                    if(!maze[p.getRPos()][p.getCPos() + 1].isWall()) {
+                    	//Remove player from current position
+                        maze[p.getRPos()][p.getCPos()].setHasPlayer(false);
+                        //Mark current position as revealed
+                        maze[p.getRPos()][p.getCPos()].setRevealed(true);
+                        //Update player position
+                        p.setCPos(p.getCPos() + 1);
+                        //Place player in new position
+                        maze[p.getRPos()][p.getCPos()].setHasPlayer(true);
+                    } 
+                    else {
+                    	//Reveals wall that was hit
+                        maze[p.getRPos()][p.getCPos() + 1].setRevealed(true);
+                        System.out.println("That's a wall!");
+                    }
+                } 
+                else {
+                	//When player moves to outside maze boundaries
+                    System.out.println("Can't go that way!");
+                }
+            }
+            
+            //Checks if won and stops game
+            if(p.getRPos()==4&&p.getCPos()==4) {
+                System.out.println("You won!");
+                playing = false;
+            }
+        }
+        //Closes scanner
+        scan.close();
+    }
+}
